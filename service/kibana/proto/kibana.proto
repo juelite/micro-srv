@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+service Kibana {
+	rpc Write(WriteRequest) returns (WriteResponse) {}
+}
+
+message WriteRequest {
+	string tag = 1;
+	string info = 2;
+	string level = 3;
+}
+
+message WriteResponse {
+	int32 code = 1;
+	string message = 2;
+	map<string, string> data = 3;
+}

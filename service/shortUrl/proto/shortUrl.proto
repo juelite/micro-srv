@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+service ShortUrl {
+	rpc Create(CreateRequest) returns (CreateResponse) {}
+	rpc Query(QueryRequest) returns (QueryResponse) {}
+}
+
+message CreateRequest {
+	string url = 1;
+	int64 express = 2;
+}
+
+message CreateResponse {
+	int32 code = 1;
+	string message = 2;
+	map<string, string> data = 3;
+}
+
+message QueryRequest {
+	string url = 1;
+}
+
+message QueryResponse {
+	int32 code = 1;
+	string message = 2;
+	map<string, string> data = 3;
+}
